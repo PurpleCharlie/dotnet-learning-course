@@ -1,0 +1,41 @@
+# 🔧 Сборочные артефакты
+bin/
+obj/
+
+# IDE
+.vs/
+*.suo
+*.user
+.idea/
+.vscode/
+
+# Тестовые результаты
+TestResults/
+*.trx
+
+# Docker
+*.pid
+*.log
+*.db
+docker-compose.override.yml 
+
+# Конфигурации окружения
+appsettings.Development.json
+.env
+
+# NuGet
+*.nupkg
+.nuget/
+
+# Логи и временные файлы
+*.log
+*.tmp
+*.bak
+
+# Coverage
+coverage/
+*.coverage
+*.coveragexml
+
+# Папки публикации
+publish/
