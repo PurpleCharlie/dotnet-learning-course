@@ -9,12 +9,12 @@ namespace Sorting_Algorithms_lesson_1.Extensions
 {
     public static class NumericSortingExtensions
     {
-        public static void BubbleSort<T>(this T[] array)  where T : INumber<T>
+        public static void BubbleSort<T>(this T[] array) where T : INumber<T>
         {
             for (int i = 1; i < array.Length; i++)
             {
                 for (int j = 0; j < array.Length - i; j++)
-                { 
+                {
                     if (array[j] > array[j + 1])
                         (array[j], array[j + 1]) = (array[j + 1], array[j]);
                 }
@@ -80,6 +80,46 @@ namespace Sorting_Algorithms_lesson_1.Extensions
             /*          Возвращаем отсортированную последовательность в изначальный массив          */
             for (i = 0; i < allocator.Length; i++)
                 array[left + i] = allocator[i];
+        }
+
+
+        public static void QuickSort<T>(this T[] array) where T : INumber<T>
+        {
+            if (array is null) throw new ArgumentNullException(nameof(array));
+            if (array.Length < 2) return;
+
+            Divide(array, 0, array.Length - 1);
+        }
+
+        private static void Divide<T>(T[] array, int left, int right) where T : INumber<T>
+        {
+            /*          Базовый случай рекурсии          */
+            if (left >= right)
+                return; 
+
+            /*          Указатели и pivot           */
+            int i = left;
+            int j = right;
+            T pivot = array[left + ((right - left) >> 1)];
+
+            /*          Разделение по Хоару         */
+            while (i <= j)
+            {
+                /*          Двигаем указатели при "правильном" расположении элементов           */
+                while (array[i] < pivot) i++;
+                while (array[j] > pivot) j--;
+
+                if (i <= j)
+                {
+                    (array[i], array[j]) = (array[j], array[i]);    // Меняем местами элементы относительно                                             
+                    i++;                                            // pivot (мЕньшие - слева, бОльшие - справа)
+                    j--;
+                }
+            }
+
+            /*          Рекурсивный случай          */
+            Divide(array, left, j);
+            Divide(array, i, right);
         }
     }
 }
