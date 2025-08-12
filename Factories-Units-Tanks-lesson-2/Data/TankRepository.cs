@@ -1,4 +1,5 @@
-﻿using Factories_Units_Tanks_lesson_2.Interfaces;
+﻿using Factories_Units_Tanks_lesson_2.Configure;
+using Factories_Units_Tanks_lesson_2.Interfaces;
 using Factories_Units_Tanks_lesson_2.Models;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Factories_Units_Tanks_lesson_2.Data;
 
-public class TankRepository : IRepository<Tank, int>
+public class TankRepository : IRepository<Tank, TankId>
 {
     public void Add(Tank item)
     {
@@ -21,6 +22,11 @@ public class TankRepository : IRepository<Tank, int>
     }
 
     public Tank GetById(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Tank GetById(TankId id)
     {
         throw new NotImplementedException();
     }

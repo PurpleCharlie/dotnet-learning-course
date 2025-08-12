@@ -1,4 +1,5 @@
-﻿using Factories_Units_Tanks_lesson_2.Interfaces;
+﻿using Factories_Units_Tanks_lesson_2.Configure;
+using Factories_Units_Tanks_lesson_2.Interfaces;
 using Factories_Units_Tanks_lesson_2.Models;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Factories_Units_Tanks_lesson_2.Data;
 
-public class FactoryRepository : IRepository<Factory, int>
+public class FactoryRepository : IRepository<Factory, FactoryId>
 {
     public FactoryRepository()
     {
@@ -26,6 +27,11 @@ public class FactoryRepository : IRepository<Factory, int>
     }
 
     public Factory GetById(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Factory GetById(FactoryId id)
     {
         throw new NotImplementedException();
     }
